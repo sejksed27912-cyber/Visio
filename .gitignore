@@ -1,23 +1,52 @@
-# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+# =========================
+# Node / npm
+# =========================
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+*.log
 
-# dependencies
-/node_modules
-/.pnp
-.pnp.js
+# =========================
+# Build / coverage
+# =========================
+build/
+dist/
+coverage/
 
-# testing
-/coverage
-
-# production
-/build
-
-# misc
-.DS_Store
+# =========================
+# Env files (NE JAMAIS COMMIT)
+# =========================
+.env
 .env.local
 .env.development.local
 .env.test.local
 .env.production.local
+.env.*.local
 
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
+# (Optionnel) si tu utilises d'autres env
+.env.development
+.env.production
+.env.test
+
+# =========================
+# OS / IDE
+# =========================
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# =========================
+# CRA / cache
+# =========================
+.cache/
+.sass-cache/
+
+# =========================
+# Misc
+# =========================
+*.tmp
+*.swp
+

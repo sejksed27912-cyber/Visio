@@ -1,8 +1,14 @@
-import { render, screen } from '@testing-library/react';
-import App from './App';
+import { render, screen } from "@testing-library/react";
+import App from "./App";
 
-test('renders learn react link', () => {
+test("renders Visio 1 title", () => {
   render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+  const title = screen.getByText(/visio 1/i);
+  expect(title).toBeInTheDocument();
+});
+
+test("renders copy link button", () => {
+  render(<App />);
+  const btn = screen.getByRole("button", { name: /copier le lien/i });
+  expect(btn).toBeInTheDocument();
 });

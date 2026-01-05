@@ -1,38 +1,310 @@
-.App {
-  text-align: center;
-}
+/* App.css - UI responsive, simple, ergonomique */
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
+/* Root */
+.appRoot {
   min-height: 100vh;
+  background: #0f1115;
+  color: #e7e7ea;
   display: flex;
   flex-direction: column;
+}
+
+/* Top bar */
+.topBar {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: rgba(15, 17, 21, 0.92);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 12px 14px;
+  gap: 12px;
+}
+
+.brand {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 200px;
+}
+
+.brandTitle {
+  font-weight: 800;
+  font-size: 16px;
+  letter-spacing: 0.2px;
+}
+
+.brandSub {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  opacity: 0.92;
+}
+
+.mono {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New",
+    monospace;
+}
+
+/* Pills */
+.pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  padding: 4px 8px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.pillOk {
+  border-color: rgba(70, 255, 160, 0.35);
+  background: rgba(70, 255, 160, 0.12);
+}
+
+.pillWarn {
+  border-color: rgba(255, 190, 80, 0.35);
+  background: rgba(255, 190, 80, 0.12);
+}
+
+.pillInfo {
+  border-color: rgba(140, 180, 255, 0.35);
+  background: rgba(140, 180, 255, 0.10);
+}
+
+/* Actions */
+.actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.btn,
+.btnPrimary,
+.btnDanger {
+  appearance: none;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: rgba(255, 255, 255, 0.05);
+  color: #e7e7ea;
+  padding: 10px 12px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 650;
+  transition: transform 0.06s ease, background 0.15s ease, border-color 0.15s ease;
+}
+
+.btn:hover,
+.btnPrimary:hover,
+.btnDanger:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.btn:active,
+.btnPrimary:active,
+.btnDanger:active {
+  transform: translateY(1px);
+}
+
+.btnPrimary {
+  border-color: rgba(90, 160, 255, 0.55);
+  background: rgba(90, 160, 255, 0.18);
+}
+
+.btnDanger {
+  border-color: rgba(255, 100, 120, 0.55);
+  background: rgba(255, 100, 120, 0.18);
+}
+
+/* Content */
+.content {
+  width: min(1100px, 100%);
+  margin: 0 auto;
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* Status / Error */
+.status {
+  border: 1px solid rgba(70, 255, 160, 0.25);
+  background: rgba(70, 255, 160, 0.10);
+  padding: 10px 12px;
+  border-radius: 12px;
+  font-size: 13px;
+}
+
+.error {
+  border: 1px solid rgba(255, 100, 120, 0.35);
+  background: rgba(255, 100, 120, 0.12);
+  padding: 10px 12px;
+  border-radius: 12px;
+  font-size: 13px;
+}
+
+/* Hint box */
+.hintBox {
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  background: rgba(255, 255, 255, 0.04);
+  padding: 12px 12px;
+  border-radius: 14px;
+}
+
+.hintTitle {
+  font-weight: 800;
+  margin-bottom: 6px;
+}
+
+.hintList {
+  margin: 0 0 6px 18px;
+  padding: 0;
+  font-size: 13px;
+  opacity: 0.95;
+}
+
+.hintSmall {
+  margin-top: 6px;
+  font-size: 12px;
+  opacity: 0.9;
+}
+
+.kbd {
+  display: inline-flex;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  min-width: 26px;
+  padding: 0 8px;
+  height: 22px;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: rgba(255, 255, 255, 0.06);
+  font-weight: 800;
 }
 
-.App-link {
-  color: #61dafb;
+/* Grid */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 12px;
+  align-items: stretch;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+/* Tile */
+.tile {
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  background: rgba(255, 255, 255, 0.04);
+  border-radius: 14px;
+  overflow: hidden;
+  position: relative;
+}
+
+.tileInner {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  background: rgba(0, 0, 0, 0.22);
+}
+
+.tileVideo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  background: rgba(0, 0, 0, 0.22);
+}
+
+.tileOverlay {
+  position: absolute;
+  left: 10px;
+  bottom: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+
+  padding: 8px 10px;
+  border-radius: 12px;
+  background: rgba(0, 0, 0, 0.45);
+  border: 1px solid rgba(255, 255, 255, 0.10);
+}
+
+.tileLabel {
+  font-weight: 850;
+  font-size: 13px;
+}
+
+.tileSubLabel {
+  font-size: 12px;
+  opacity: 0.9;
+}
+
+.tilePlaceholder .tileVideo {
+  opacity: 0;
+}
+
+.tileHint {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 14px;
+  font-weight: 750;
+  opacity: 0.95;
+}
+
+/* Footer */
+.footer {
+  margin-top: 6px;
+  padding: 10px 12px;
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.03);
+  font-size: 12px;
+  opacity: 0.9;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.footerLine {
+  line-height: 1.35;
+}
+
+/* Responsive */
+@media (max-width: 520px) {
+  .topBar {
+    flex-direction: column;
+    align-items: stretch;
   }
-  to {
-    transform: rotate(360deg);
+
+  .actions {
+    justify-content: stretch;
+  }
+
+  .btn,
+  .btnPrimary,
+  .btnDanger {
+    width: 100%;
+  }
+
+  .grid {
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  }
+
+  .tileInner {
+    aspect-ratio: 16 / 12;
   }
 }
